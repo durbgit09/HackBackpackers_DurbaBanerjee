@@ -25,11 +25,24 @@ As I am not expert in python/javascript, please consider it as a psuedo code
 
 Solution:
 1. 
+   currentUTC([<value1> : string])
    datetime_utc_to_local(from,timezone)
-2.
-3. def
-   minute = datetime_part("minute", dt)
-4.
+   
+2.def date_func():
+   x=int(input())
+   
+   
+   
+3. def part_func():
+   x=datetime(2022-10-30 01:02:03)
+   y = datetime_part("minute", x)
+   return y
+   
+4. def time_unix():
+   x= toLong( currentTimestamp() - toTimestamp('1970-01-01 00:00:00.000', 'yyyy-MM-dd HH:mm:ss.SSS') ) * 1000|
+   return x
+   
+   
 5. def binary_func():
    x=int(input())
    y=int(input())
@@ -70,7 +83,13 @@ Solution:
    
 14.
    
-15.
+15.def alph_num():
+   x=input() 
+   y= input() (# ex: AB99, AB100)
+   iif(
+   x has "A"
+   
+   
    
 16.def rep_str():
    x=input() 
