@@ -24,13 +24,18 @@ Replacing the datastage functions with equivalent ADF functions
 As I am not expert in python/javascript, please consider it as a psuedo code 
 
 Solution:
-1. 
-   currentUTC([<value1> : string])
-   datetime_utc_to_local(from,timezone)
+
+  1. def time_func():
+   x=currentTimestamp()
+   return x
    
-2.def date_func():
+   
+2. def date_func():
    x=int(input())
-   
+   y= toLong( currentTimestamp() - toTimestamp('1970-01-01 00:00:00.000', 'yyyy-MM-dd HH:mm:ss.SSS') ) * 1000|   (#ex: converting to unix)
+   z=y-x
+   t=toUTC(z)
+   return t
    
    
 3. def part_func():
@@ -49,13 +54,18 @@ Solution:
    z=binary_and(x,y)
    return z
    
-6. 
-7.def abs_value():
+6. def binary_func2():
+   x=int(input())
+   y=int(input())
+   z=binary_or(x,y)  (# add the binary value to give decimal output)
+   return z
+   
+7. def abs_value():
   x=int(input())
   abs_val=abs(x)
   return abs_val
 
-8.def floor_value():
+8. def floor_value():
   x=float(input()) (#ex-5.56)
   floor_val= bin(x,1)  (#bin() is alias of floor())
   return floor_val
@@ -65,33 +75,45 @@ Solution:
    return x
    
 
-10. isnotnull([value])
-11. iff(
-   isnull("") == true
-     )
-   else ( null)
-12.def double_val():
+10. def null_func():
+   isnotnull([value])
+   
+   
+11. def null_val():
+   val=input()
+   iff(
+   isnull("val") == true
+     val='hi')
+   else (val='null')
+   return()
+   
+12. def double_val():
    x=int(input())
    y= todouble(x)
    return y
 
-13.def split_val():
+13. def split_val():
    x=float(input())  (# ex: 243.7890)
    y=string(x)
    z=split(y,".",2)
    return int(z)
    
-14.
+14. def len_func():
+   x=str_len()
+   return x
    
-15.def alph_num():
+15. def alph_num():
    x=input() 
    y= input() (# ex: AB99, AB100)
    iif(
-   x has "A"
+   x has ((("A" -"Z") || ("a" -"z") ) && ('0' -'9'))
+     return (1)
+   )
+  return(0)
    
    
    
-16.def rep_str():
+16. def rep_str():
    x=input() 
    lookup_val=input()
    rewrite_val=input()
@@ -99,10 +121,12 @@ Solution:
    return y
   
 
-17.
+17. def num_shift():
+   input1=int(input())
+   input2=int(input())
+   iif(greater(input1, input2), '1','-1')
+   return()
    
-   n1= binary_shift_right(num1, num2 )
-   n2= binary_shift_left(num1, num2 )
    
 18. def split_val():
    x=input() (#ex: 'ab','abc','abcd')
@@ -110,7 +134,7 @@ Solution:
    z=split(x,",",index_num)
    return z
    
-19.def rep_str():
+19. def rep_str():
    x=input() (#ex: abc)
    count=int(input())
    y=strrep(x, count)
