@@ -3,17 +3,25 @@
 Problem Statements
 
 Problem Statement 1 - Lineage problem statement
-# Description
-<Write some description for your solution>
-# Prerequisite
-<Write any prerequisites needed to run your solution>
-# How to run
-<Write steps to run your solution>
-Steps
-1.
-2.
-# Any other points to mention
-<Any other points if you want to mention>
+
+1) Creating stored procedure
+2) Passing the sql statement as provided in the problem statement 
+3) And executing it with SQL override query
+
+  CREATE PROCEDURE col_tab_value 
+AS
+  SELECT  distinct COLUMN_NAME,TABLE_NAME from  
+(sql_statement)  (# given problem_statement) 
+  WHERE TABLE_NAME like ('%_T' or '%_S')
+ and COLUMN_NAME like ('T.%' or 'S.%') 
+GO;
+
+  EXEC col_tab_value
+  
+  
+  NOTE- We can extract the column names with this query as well - SELECT *
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = N'TABLE_NAME'
 
 
 
@@ -143,14 +151,11 @@ Solution:
 
 
 Problem Statement 3 - XML problem statement
-# Description
-<Write some description for your solution>
-# Prerequisite
-<Write any prerequisites needed to run your solution>
-# How to run
-<Write steps to run your solution>
-Steps
-1.
-2.
-# Any other points to mention
-<Any other points if you want to mention>
+
+
+1)Description:Expression for setting up date format:
+
+Source(exp_cntry_multi_def_cd)--> transformation(Expression) -->IN_OUTPUT_RUNDATEEXPRESSION="TO_DATE&#xD;&#xA;(IN_OUTPUT_RUNDATE ,&apos;YYYY-MM-DD&apos;)-->target(OUT_DW_AS_OF_DT)
+
+-->IN_AUDIT_UPDT_TSEXPRESSION= TO_DATE(IN_AUDIT_UPDT_TS,&apos;YYYY-MM-DD HH24.MI.SS&apos;)-->Target(OUT_AUDIT_UPDT_TS)
+
